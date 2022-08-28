@@ -50,6 +50,22 @@ def num_check(question, low, high):
         except ValueError:
             print(error)
 
+def statement_generator (statement, decoration):
+
+    sides = decoration * 3
+
+
+    statement = "{} {} {}".format(sides, statement, sides)
+    top_bottom = decoration * len(statement)
+
+    print(top_bottom)
+    print(statement)
+    print(top_bottom)
+
+    return ""
+
+statement_generator("Welcome to Lucky Unicorn Game", "*")
+print()
 show_instructions = yes_no ("have you played this game before:")
 
 if show_instructions == "no":
@@ -75,18 +91,24 @@ while play_again == "":
 
     if 1 <= chosen_num <= 5:
             chosen = "unicorn"
+            prize_decoration = "!"
             balance += 4
     elif 6 <= chosen_num <= 36:
-            chosen = "donkey"
-            balance -= 1
+        prize_decoration = "D"
+        chosen = "donkey"
+        balance -= 1
     else:
         if chosen_num % 2 == 0:
             chosen = "horse"
+            prize_decoration = "H"
         else:
             chosen = "zebra"
+            prize_decoration = "Z"
         balance -= 0.5
 
-    print("You got a {}. your balance is ${:.2f}".format(chosen, balance))
+    outcome = "You got a {}. your balance is ${:.2f}".format(chosen, balance)
+
+    statement_generator(outcome, prize_decoration)
 
     if balance <1:
         play_again = "xxx"
