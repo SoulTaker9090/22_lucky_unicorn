@@ -64,7 +64,7 @@ def statement_generator (statement, decoration):
 
     return ""
 
-statement_generator("Welcome to Lucky Unicorn Game", "*")
+statement_generator("Welcome to Lucky Unicorn Game:", "*")
 print()
 show_instructions = yes_no ("have you played this game before:")
 
